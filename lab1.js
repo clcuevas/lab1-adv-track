@@ -73,7 +73,7 @@ var sentence1 = "More food please.",
 //Example One
 function splitString(sentence) {
   sentence = sentence.split(" ");
-  for (var i =0; i < sentence.length; i++) {
+  for (var i = 0; i < sentence.length; i++) {
     sentence[i] = "chirp";
   }
   sentence = sentence.join(" ") + ".";
@@ -86,6 +86,7 @@ sentence2 = splitString(sentence2);
 
 //Example Two
 function splitStringTwo(sentenceTwo) {
+  //counter
   var i = 0;
   sentenceTwo = sentenceTwo.split(" ");
   while (i < sentenceTwo.length) {
@@ -152,13 +153,13 @@ function feedLion(meals) {
   for (var i = 0; i < meals.length; i++) {
     //add total meals to meals per i counter
     totalMeals += meals[i];
-    //calculate the average meals
+    //calculate the average meals, remove decimals
     avgMeal = Math.floor(totalMeals / (i + 1));
     console.log("On day " + (i + 1) + " the lion ate an average of " + avgMeal + " meals.");
     //if the avg meal is less than 4, then the lion is too hungry
     if (avgMeal < 4) {
       tooHungryDay = i + 1;
-      console.log("The lion is preying on humans on day " + tooHungryDay + ". FEED HIM!");
+      console.log("The lion is preying on humans on day " + tooHungryDay + ". FEED HIM! Or you'll become its meal. Your pick.");
       return tooHungryDay;
     }
   }
