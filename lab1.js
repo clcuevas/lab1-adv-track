@@ -52,6 +52,9 @@ assert(1 === 2, "this is an assertion failure example. 1===2");
  it failed.
 */
 
+assert("lion" === "lion");
+assert("lion" === "rhino", "the string 'lion' does not explicitly equal to the string 'rhino'.");
+
 /* ----------------- Meerkats -------------------------------------------------
  Meerkats make a sort of chirping noise (according to my 30 seconds of
  research).  We're going to translate two sentences into meerkat speech.
@@ -67,6 +70,36 @@ var sentence1 = "More food please.",
  **two** different kinds of loops to implement this.
  HINT: the "split" method on String will be useful.
 */
+//Example One
+function splitString(sentence) {
+  var sentence = sentence.split(" ");
+  for (var i = 0; i < sentence.length; i++) {
+    sentence[i] = "chirp";
+  }
+  sentence = sentence.join(" ") + ".";
+  console.log("Meerkats go " + sentence);
+  return sentence;
+}
+
+sentence1 = splitString(sentence1);
+sentence2 = splitString(sentence2);
+
+//Example Two
+function splitStringTwo(sentenceTwo) {
+  //counter
+  var i = 0;
+  var sentenceTwo = sentenceTwo.split(" ");
+  while (i < sentenceTwo.length) {
+    sentenceTwo[i] = "chirp";
+    i++;
+  }
+  sentenceTwo = sentenceTwo.join(" ") + ".";
+  console.log("Meerkats go " + sentenceTwo);
+  return sentenceTwo;
+}
+
+sentence1 = splitStringTwo(sentence1);
+sentence2 = splitStringTwo(sentence2);
 
 assert(sentence1 === "chirp chirp chirp.", "sentence 1 should have 3 chirps");
 assert(sentence2 === "chirp chirp chirp chirp chirp chirp chirp chirp chirp.",
@@ -84,6 +117,9 @@ var favoriteAnimals = [ "elephant", "penguin", "eagle", "camel" ],
 
 // TODO: 10 points
 // Assign one of your favorite animals to nextAnimal using Math.random() to pick
+nextAnimal = favoriteAnimals[Math.floor(Math.random() * favoriteAnimals.length)]; //random selector
+
+console.log("My random selection chose for us to visit the " + nextAnimal + " next.");
 
 assert(nextAnimal, "assign something to nextAnimal");
 
@@ -109,6 +145,27 @@ var mealsPerDay = [ 5, 4, 3, 6, 2, 4, 3, 4, 5, 1 ],
  pondering protein supplements (the first day the average dips below 4
  meals)
 */
+
+function feedLion(meals) {
+  var avgMeal = 0,
+      totalMeals = 0;
+
+  for (var i = 0; i < meals.length; i++) {
+    //add total meals to meals per i counter
+    totalMeals += meals[i];
+    //calculate the average meals, remove decimals
+    avgMeal = Math.floor(totalMeals / (i + 1));
+    console.log("On day " + (i + 1) + " the lion ate an average of " + avgMeal + " meals.");
+    //if the avg meal is less than 4, then the lion is too hungry
+    if (avgMeal < 4) {
+      tooHungryDay = i + 1;
+      console.log("The lion is preying on humans on day " + tooHungryDay + ". FEED HIM!");
+      return tooHungryDay;
+    }
+  }
+}
+
+feedLion(mealsPerDay);
 
 assert(tooHungryDay, "don't forget to assign the answer to tooHungryDay");
 assert(tooHungryDay < 10, "the lion is too hungry before the end of the array");
