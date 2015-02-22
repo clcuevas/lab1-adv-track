@@ -53,7 +53,7 @@ assert(1 === 2, "this is an assertion failure example. 1===2");
 */
 
 assert("lion" === "lion");
-assert("lion" === "rhino", "this assertion will fail because lions are not rhinos. Also, the string 'lion' does not explicitly equal to the string 'rhino'.");
+assert("lion" === "rhino", "the string 'lion' does not explicitly equal to the string 'rhino'.");
 
 /* ----------------- Meerkats -------------------------------------------------
  Meerkats make a sort of chirping noise (according to my 30 seconds of
@@ -72,7 +72,7 @@ var sentence1 = "More food please.",
 */
 //Example One
 function splitString(sentence) {
-  sentence = sentence.split(" ");
+  var sentence = sentence.split(" ");
   for (var i = 0; i < sentence.length; i++) {
     sentence[i] = "chirp";
   }
@@ -88,7 +88,7 @@ sentence2 = splitString(sentence2);
 function splitStringTwo(sentenceTwo) {
   //counter
   var i = 0;
-  sentenceTwo = sentenceTwo.split(" ");
+  var sentenceTwo = sentenceTwo.split(" ");
   while (i < sentenceTwo.length) {
     sentenceTwo[i] = "chirp";
     i++;
@@ -159,7 +159,7 @@ function feedLion(meals) {
     //if the avg meal is less than 4, then the lion is too hungry
     if (avgMeal < 4) {
       tooHungryDay = i + 1;
-      console.log("The lion is preying on humans on day " + tooHungryDay + ". FEED HIM! Or you'll become its meal. Your pick.");
+      console.log("The lion is preying on humans on day " + tooHungryDay + ". FEED HIM!");
       return tooHungryDay;
     }
   }
